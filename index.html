@@ -1,70 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>AmaExpress - Productos Virales y Tecnología</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AmaExpress - Productos</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f4f7fb; margin: 0; padding: 20px; }
+  header { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; }
+  header img { height: 50px; }
+  header h1 { font-weight: 700; color: #0a3d62; }
+  .products { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 20px; }
+  .product { background: white; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; }
+  .product img { max-width: 100%; border-radius: 6px; }
+  .product-name { font-size: 1rem; margin: 10px 0; color: #222; height: 48px; overflow: hidden; }
+  .btn-buy { background: #ff6f00; color: white; padding: 10px 15px; border: none; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block; }
+  .btn-buy:hover { background: #e65a00; }
+  footer { text-align: center; margin-top: 40px; color: #555; font-size: 0.9rem; }
+</style>
 </head>
-<body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5; text-align: center;">
-    <h1 style="color: #e67e22;">🔥 Bienvenido a AmaExpress 🔥</h1>
-    <p>Descubre lo más viral, lo más vendido y lo más útil, todo en un solo lugar.</p>
+<body>
 
-    <hr>
+<header>
+  <img src="https://i.imgur.com/cpGn8Xz.png" alt="Logo AmaExpress" />
+  <h1>AmaExpress</h1>
+</header>
 
-    <h2 style="color: #2980b9;">🖥️ Tecnología</h2>
-    <div>
-        <a href="https://amzn.to/45kXlrw" target="_blank">
-            <img src="https://source.unsplash.com/featured/?tech,gadget" width="200"><br>
-            Ver producto 1
-        </a><br><br>
-        <a href="https://amzn.to/45k0JTv" target="_blank">
-            <img src="https://source.unsplash.com/featured/?electronics,device" width="200"><br>
-            Ver producto 2
-        </a>
-    </div>
+<div class="products" id="products"></div>
 
-    <hr>
+<footer>© 2025 AmaExpress - Sitio afiliado de Amazon</footer>
 
-    <h2 style="color: #8e44ad;">🧴 Perfumes de Hombre</h2>
-    <div>
-        <a href="https://amzn.to/4fpSfP9" target="_blank">
-            <img src="https://source.unsplash.com/featured/?perfume,fragrance" width="200"><br>
-            Perfume 1
-        </a><br><br>
-        <a href="https://amzn.to/4muUD9L" target="_blank">
-            <img src="https://source.unsplash.com/featured/?cologne,bottle" width="200"><br>
-            Perfume 2
-        </a><br><br>
-        <a href="https://amzn.to/3UaPK9M" target="_blank">
-            <img src="https://source.unsplash.com/featured/?scent,aroma" width="200"><br>
-            Perfume 3
-        </a>
-    </div>
+<script>
+  // Aquí pones tus productos con nombre, imagen y enlace afiliado
+  const products = [
+    {
+      name: "Auriculares Bluetooth Sony WH-1000XM4",
+      image: "https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SL1500_.jpg",
+      url: "https://www.amazon.es/dp/B0863TXGM3/?tag=tuIDdeafiliado-21"
+    },
+    {
+      name: "Echo Dot (4ª generación)",
+      image: "https://m.media-amazon.com/images/I/714Rq4k05UL._AC_SL1000_.jpg",
+      url: "https://www.amazon.es/dp/B084J4MZK6/?tag=tuIDdeafiliado-21"
+    }
+    // Añade más productos aquí
+  ];
 
-    <hr>
+  const container = document.getElementById('products');
+  products.forEach(p => {
+    const productDiv = document.createElement('div');
+    productDiv.className = 'product';
+    productDiv.innerHTML = `
+      <img src="${p.image}" alt="${p.name}" />
+      <div class="product-name">${p.name}</div>
+      <a class="btn-buy" href="${p.url}" target="_blank" rel="noopener noreferrer">Comprar en Amazon</a>
+    `;
+    container.appendChild(productDiv);
+  });
+</script>
 
-    <h2 style="color: #27ae60;">🏠 Gadgets para el Hogar</h2>
-    <div>
-        <a href="https://amzn.to/46Ea8rh" target="_blank">
-            <img src="https://source.unsplash.com/featured/?home,gadget" width="200"><br>
-            Gadget 1
-        </a><br><br>
-        <a href="https://amzn.to/45h5pcE" target="_blank">
-            <img src="https://source.unsplash.com/featured/?household,device" width="200"><br>
-            Gadget 2
-        </a>
-    </div>
-
-    <hr>
-
-    <h2 style="color: #c0392b;">🔥 Virales de TikTok</h2>
-    <div>
-        <a href="https://amzn.to/3UNE0tY" target="_blank">
-            <img src="https://source.unsplash.com/featured/?tiktok,trending" width="200"><br>
-            Producto Viral
-        </a>
-    </div>
-
-    <hr>
-    <p>¡Gracias por visitar AmaExpress! Haz clic en los productos para comprarlos en Amazon. 🛒</p>
 </body>
 </html>
